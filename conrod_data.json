@@ -1,0 +1,33 @@
+{
+  "source": "https://cad.onshape.com/documents/58673a9c2392640e143eef2a/w/d2ad0901c46b3c07f468e29f/e/295d2ed6f445d3b626ea09f8",
+  "material": "Steel, 7850 kg/m^3",
+  "mass_kg": 0.46779314509369313,
+  "volume_m3": 5.959148345142588e-05,
+  "center_of_mass_m": [
+    0.04403887646082537,
+    -1.4293253448942613e-18,
+    6.87293780554865e-19
+  ],
+  "inertia_about_com_kgm2": [
+    0.00010074536822966506,
+    0.0,
+    0.0,
+    0.0,
+    0.0014306942813539325,
+    0.0,
+    0.0,
+    0.0,
+    0.0015069125014843976
+  ],
+  "big_end_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "small_end_m": [
+    0.14,
+    0.0,
+    0.0
+  ],
+  "rotation_axis": "z (normal to the plane of motion)"
+}

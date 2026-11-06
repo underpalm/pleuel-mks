@@ -1,0 +1,104 @@
+<mujoco model="slider_crank_conrod_comparison">
+  <compiler angle="radian" meshdir="assets" inertiafromgeom="false"/>
+  <option timestep="1e-05" gravity="0 0 0" integrator="implicitfast">
+    <flag contact="disable"/>
+  </option>
+  <asset>
+    <mesh name="conrod" file="conrod.stl" scale="0.001 0.001 0.001"/>
+  </asset>
+  <worldbody>
+    <light pos="0.1 0.3 1" dir="0 0 -1" directional="true"/>
+    <body name="crank_real" pos="0 0 0.0">
+      <joint name="crank_real" type="hinge" axis="0 0 1"/>
+      <inertial pos="0 0 0" mass="1.0" diaginertia="1e-3 1e-3 1e-3"/>
+      <geom type="capsule" fromto="0 0 -0.012 0.04 0 -0.012" size="0.008" rgba="0.4 0.4 0.4 1" mass="0"/>
+      <body name="rod_real" pos="0.04 0 0">
+        <joint name="rod_real" type="hinge" axis="0 0 1"/>
+        <site name="A_real" pos="0 0 0"/>
+          <inertial pos="0.0440388765 0 0" mass="0.467793145" fullinertia="0.000100745368 0.00143069428 0.0015069125 0 0 0"/>
+          <geom type="mesh" mesh="conrod" rgba="0.55 0.65 0.8 1"/>
+      </body>
+    </body>
+    <body name="piston_real" pos="0.18 0 0.0">
+      <joint name="piston_real" type="slide" axis="1 0 0"/>
+      <inertial pos="0 0 0" mass="0.35" diaginertia="1e-4 1e-4 1e-4"/>
+      <geom type="cylinder" size="0.03 0.025" quat="0.7071068 0 0.7071068 0" pos="0.03 0 0" rgba="0.7 0.7 0.75 0.6" mass="0"/>
+      <site name="K_real" pos="0 0 0"/>
+    </body>
+    <body name="crank_two" pos="0 0 0.12">
+      <joint name="crank_two" type="hinge" axis="0 0 1"/>
+      <inertial pos="0 0 0" mass="1.0" diaginertia="1e-3 1e-3 1e-3"/>
+      <geom type="capsule" fromto="0 0 -0.012 0.04 0 -0.012" size="0.008" rgba="0.4 0.4 0.4 1" mass="0"/>
+      <body name="rod_two" pos="0.04 0 0">
+        <joint name="rod_two" type="hinge" axis="0 0 1"/>
+        <site name="A_two" pos="0 0 0"/>
+          <inertial pos="0.07 0 0" mass="1e-6" diaginertia="1e-10 1e-10 1e-10"/>
+          <geom type="capsule" fromto="0 0 0 0.14 0 0" size="0.002" rgba="0.3 0.3 0.3 1" mass="0"/>
+          <body name="mass_A_two" pos="0 0 0">
+            <inertial pos="0 0 0" mass="0.320642541" diaginertia="1e-10 1e-10 1e-10"/>
+            <geom type="sphere" size="0.0166" rgba="0.85 0.25 0.2 1" mass="0"/>
+          </body>
+          <body name="mass_B_two" pos="0.14 0 0">
+            <inertial pos="0 0 0" mass="0.147150604" diaginertia="1e-10 1e-10 1e-10"/>
+            <geom type="sphere" size="0.0142" rgba="0.85 0.25 0.2 1" mass="0"/>
+          </body>
+      </body>
+    </body>
+    <body name="piston_two" pos="0.18 0 0.12">
+      <joint name="piston_two" type="slide" axis="1 0 0"/>
+      <inertial pos="0 0 0" mass="0.35" diaginertia="1e-4 1e-4 1e-4"/>
+      <geom type="cylinder" size="0.03 0.025" quat="0.7071068 0 0.7071068 0" pos="0.03 0 0" rgba="0.7 0.7 0.75 0.6" mass="0"/>
+      <site name="K_two" pos="0 0 0"/>
+    </body>
+    <body name="crank_three" pos="0 0 0.24">
+      <joint name="crank_three" type="hinge" axis="0 0 1"/>
+      <inertial pos="0 0 0" mass="1.0" diaginertia="1e-3 1e-3 1e-3"/>
+      <geom type="capsule" fromto="0 0 -0.012 0.04 0 -0.012" size="0.008" rgba="0.4 0.4 0.4 1" mass="0"/>
+      <body name="rod_three" pos="0.04 0 0">
+        <joint name="rod_three" type="hinge" axis="0 0 1"/>
+        <site name="A_three" pos="0 0 0"/>
+          <inertial pos="0.07 0 0" mass="1e-6" diaginertia="1e-10 1e-10 1e-10"/>
+          <geom type="capsule" fromto="0 0 0 0.14 0 0" size="0.002" rgba="0.3 0.3 0.3 1" mass="0"/>
+          <body name="mass_A_three" pos="0 0 0">
+            <inertial pos="0 0 0" mass="0.244412701" diaginertia="1e-10 1e-10 1e-10"/>
+            <geom type="sphere" size="0.0157" rgba="0.85 0.25 0.2 1" mass="0"/>
+          </body>
+          <body name="mass_S_three" pos="0.0440388765 0 0">
+            <inertial pos="0 0 0" mass="0.111213555" diaginertia="1e-10 1e-10 1e-10"/>
+            <geom type="sphere" size="0.0134" rgba="0.85 0.25 0.2 1" mass="0"/>
+          </body>
+          <body name="mass_B_three" pos="0.14 0 0">
+            <inertial pos="0 0 0" mass="0.112166889" diaginertia="1e-10 1e-10 1e-10"/>
+            <geom type="sphere" size="0.0135" rgba="0.85 0.25 0.2 1" mass="0"/>
+          </body>
+      </body>
+    </body>
+    <body name="piston_three" pos="0.18 0 0.24">
+      <joint name="piston_three" type="slide" axis="1 0 0"/>
+      <inertial pos="0 0 0" mass="0.35" diaginertia="1e-4 1e-4 1e-4"/>
+      <geom type="cylinder" size="0.03 0.025" quat="0.7071068 0 0.7071068 0" pos="0.03 0 0" rgba="0.7 0.7 0.75 0.6" mass="0"/>
+      <site name="K_three" pos="0 0 0"/>
+    </body>
+  </worldbody>
+  <equality>
+    <connect name="pin_real" body1="rod_real" body2="piston_real" anchor="0.14 0 0" solref="0.00003 1"/>
+    <connect name="pin_two" body1="rod_two" body2="piston_two" anchor="0.14 0 0" solref="0.00003 1"/>
+    <connect name="pin_three" body1="rod_three" body2="piston_three" anchor="0.14 0 0" solref="0.00003 1"/>
+  </equality>
+  <actuator>
+    <velocity name="motor_real" joint="crank_real" kv="20000" ctrlrange="0 400" ctrllimited="true"/>
+    <velocity name="motor_two" joint="crank_two" kv="20000" ctrlrange="0 400" ctrllimited="true"/>
+    <velocity name="motor_three" joint="crank_three" kv="20000" ctrlrange="0 400" ctrllimited="true"/>
+  </actuator>
+  <sensor>
+    <actuatorfrc name="M_real" actuator="motor_real"/>
+    <force name="FA_real" site="A_real"/>
+    <force name="FK_real" site="K_real"/>
+    <actuatorfrc name="M_two" actuator="motor_two"/>
+    <force name="FA_two" site="A_two"/>
+    <force name="FK_two" site="K_two"/>
+    <actuatorfrc name="M_three" actuator="motor_three"/>
+    <force name="FA_three" site="A_three"/>
+    <force name="FK_three" site="K_three"/>
+  </sensor>
+</mujoco>

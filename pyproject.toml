@@ -1,0 +1,16 @@
+[project]
+name = "conrod-mbs"
+version = "0.1.0"
+description = "Connecting rod vs. equivalent mass system in a slider-crank mechanism - multibody simulation with Onshape and MuJoCo"
+authors = [
+    { name = "underpalm", email = "nerdvsn@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.11.2",
+    "mujoco>=3.17.0",
+    "numpy>=2.5.4",
+]
+
+[tool.uv]
+package = false
