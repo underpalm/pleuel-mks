@@ -1,0 +1,49 @@
+# Python dependencies of this project (Python >= 3.12).
+# Install:  python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+# Direct dependencies: mujoco, numpy, matplotlib - everything else is pulled in by them.
+# Exact versions this project was tested with (generated with: uv export --no-hashes --format requirements-txt).
+
+absl-py==2.5.1
+    # via mujoco
+contourpy==1.4.0
+    # via matplotlib
+cycler==0.12.1
+    # via matplotlib
+etils==1.15.0
+    # via mujoco
+fonttools==4.68.0
+    # via matplotlib
+fsspec==2026.9.0
+    # via etils
+glfw==2.11.0
+    # via mujoco
+kiwisolver==1.5.1
+    # via matplotlib
+matplotlib==3.11.2
+    # via this project
+mujoco==3.17.0
+    # via this project
+numpy==2.5.4
+    # via
+    #   this project
+    #   contourpy
+    #   matplotlib
+    #   mujoco
+packaging==26.3
+    # via matplotlib
+pillow==13.0.0
+    # via matplotlib
+pyopengl==3.1.10
+    # via mujoco
+pyparsing==3.3.3
+    # via matplotlib
+python-dateutil==4.0.0
+    # via matplotlib
+typing-extensions==4.16.0
+    # via etils
+tzdata==2026.6
+    # via python-dateutil
+websockets==17.4
+    # via mujoco
+zipp==4.1.2
+    # via etils

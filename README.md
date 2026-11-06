@@ -48,25 +48,41 @@ two-mass model vs. ½·ΔJ·λ²·ω² (1.897 Nm vs. 1.893 Nm).
 All numbers and figures: `results/SUMMARY.md`, `results/comparison_forces_torques.png`,
 `results/deviations.png`, CSV time histories `results/history_{real,two,three}.csv`.
 
-## Running
+## Installation
 
-Requires [uv](https://docs.astral.sh/uv/).
+Requires Python ≥ 3.12. Dependencies: `mujoco`, `numpy`, `matplotlib`
+(exact tested versions in `requirements.txt`).
+
+**With pip:**
 
 ```bash
-uv sync
-uv run python equivalent_system.py          # compute the equivalent systems
-uv run python slider_crank.py               # simulation + plots (about 2 s)
-uv run python slider_crank.py --rpm 6000    # different speed
-uv run python slider_crank.py --gravity     # with gravity
-uv run python view.py                       # watch it in the MuJoCo viewer (60 rpm)
+python -m venv .venv
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
 ```
 
-If ROS is installed, prefix `uv` with `env -u PYTHONPATH` (ROS's PYTHONPATH interferes with the venv).
+**With [uv](https://docs.astral.sh/uv/):** `uv sync` creates `.venv` and installs the same
+versions from `uv.lock`. Then prefix the commands below with `uv run`.
+
+If ROS is installed, run `unset PYTHONPATH` first (or prefix commands with `env -u PYTHONPATH`);
+ROS's PYTHONPATH interferes with the virtual environment.
+
+## Running
+
+```bash
+python equivalent_system.py          # compute the equivalent systems
+python slider_crank.py               # simulation + plots (about 2 s)
+python slider_crank.py --rpm 6000    # different speed
+python slider_crank.py --gravity     # with gravity
+python view.py                       # watch it in the MuJoCo viewer (60 rpm)
+```
 
 ## Files
 
 | File | Content |
 |---|---|
+| `requirements.txt` | Python dependencies with tested versions (pip) |
+| `pyproject.toml`, `uv.lock` | the same for uv |
 | `conrod_data.json` | mass properties exported from Onshape (SI units) |
 | `assets/conrod.stl` | rod geometry (mm) |
 | `equivalent_system.py` | two- and three-mass models, derivation in the docstring |
